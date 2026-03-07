@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment.development';
+import { PaymentDetail } from './payment-detail.model';
 
 @Injectable({
   providedIn: 'root'
@@ -8,6 +9,9 @@ import { environment } from 'src/environments/environment.development';
 export class PaymentDetailService {
   //Adding the Base URL to the service
   url: string = environment.apiBaseUrl+ '/PaymentDetail';
+
+  //Creating an instance of PaymentDetailModel
+  list: PaymentDetail[] = [];
 
 
   //Injecting an instance of the HttpClient class in the constructor
