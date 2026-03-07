@@ -13,6 +13,9 @@ export class PaymentDetailService {
   //Creating an instance of PaymentDetailModel
   list: PaymentDetail[] = [];
 
+  //Creating an instance of PaymentDetailModel
+  formData: PaymentDetail = new PaymentDetail();
+
 
   //Injecting an instance of the HttpClient class in the constructor
   //to make HTTP requests to the server. We also need to register the 
