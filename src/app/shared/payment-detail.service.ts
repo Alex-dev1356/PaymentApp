@@ -23,7 +23,10 @@ export class PaymentDetailService {
     this.http.get(this.url)
     .subscribe({
       next: res => {
-        console.log(res);
+        //Converting the response to an array of PaymentDetail
+        //The response value that we get on the api/PaymentDetail
+        //will be assigned to the list
+        this.list = res as PaymentDetail[]
       },
       error: err => {console.log(err)}      
     })
