@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { PaymentDetailService } from '../shared/payment-detail.service';
 
 @Component({
   selector: 'app-payment-details',
@@ -6,6 +7,13 @@ import { Component } from '@angular/core';
   styles: [
   ]
 })
-export class PaymentDetailsComponent {
 
+//Implement the life cycle hook ngOnInit()
+export class PaymentDetailsComponent implements OnInit {
+
+    //Injecting the PaymentDetailService into the PaymentDetailsComponent
+  constructor(public service:PaymentDetailService) { }
+  ngOnInit(): void {
+    this.service.refreshList();
+  }
 }
