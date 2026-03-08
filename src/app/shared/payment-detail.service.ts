@@ -34,4 +34,9 @@ export class PaymentDetailService {
       error: err => {console.log(err)}      
     })
   }
+
+  //Defining the Post Request that will be used to Register a new PaymentDetail
+  postPaymentDetail(){
+    return this.http.post(this.url, this.formData)
+  }
 }
