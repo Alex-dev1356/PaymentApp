@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment.development';
 import { PaymentDetail } from './payment-detail.model';
+import { FormGroupName, NgForm } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
@@ -38,5 +39,10 @@ export class PaymentDetailService {
   //Defining the Post Request that will be used to Register a new PaymentDetail
   postPaymentDetail(){
     return this.http.post(this.url, this.formData)
+  }
+
+  resetForm(form:NgForm){
+    form.form.reset();
+    this.formData = new PaymentDetail();
   }
 }
