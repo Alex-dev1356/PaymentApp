@@ -17,8 +17,8 @@ export class PaymentDetailService {
   //Creating an instance of PaymentDetailModel
   formData: PaymentDetail = new PaymentDetail();
 
-  //To know if the form is submitted or not
-  formSubmitted: boolean = false;
+  //To know if the form is submitted or not 
+  formSubmitted: boolean = false; //changes here for this commit
 
 
   //Injecting an instance of the HttpClient class in the constructor
@@ -47,9 +47,9 @@ export class PaymentDetailService {
   resetForm(form:NgForm){
     form.form.reset();
     this.formData = new PaymentDetail();
-    
+
     //Resetting the formSubmitted variable variable back to false
     //after the form is submitted
-    this.formSubmitted = false;
+    this.formSubmitted = false; //changes here for this commit
   }
 }

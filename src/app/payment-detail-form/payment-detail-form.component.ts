@@ -19,7 +19,7 @@ export class PaymentDetailFormComponent {
   //Defining the onSubmit Method for the Event Binding
   onSubmit(form : NgForm){
     //Checking if the form is Submitted or NOT
-    this.service.formSubmitted = true
+    this.service.formSubmitted = true //changes here for this commit
 
     //Adding validation if the form is VALID or NOT
     if(form.valid){
