@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PaymentDetailService } from '../shared/payment-detail.service';
+import { PaymentDetail } from '../shared/payment-detail.model';
 
 @Component({
   selector: 'app-payment-details',
@@ -15,5 +16,10 @@ export class PaymentDetailsComponent implements OnInit {
   constructor(public service:PaymentDetailService) { }
   ngOnInit(): void {
     this.service.refreshList();
+  }
+
+  editPaymentRecord(selectorRecord: PaymentDetail){
+    //Assigning the selected record to the formData of type PaymentDetail Model
+    this.service.formData = selectorRecord;
   }
 }
