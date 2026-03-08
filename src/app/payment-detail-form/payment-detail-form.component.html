@@ -7,7 +7,8 @@
         <input type="text" class="form-control form-control-lg" 
         placeholder="Name on Card"
         #cardOwnerName="ngModel" name="cardOwnerName"
-        [(ngModel)]="service.formData.cardOwnerName">
+        [(ngModel)]="service.formData.cardOwnerName"
+        required>
     </div>
 
     <div class="mb-3">
@@ -15,7 +16,8 @@
         <input type="text" class="form-control form-control-lg" 
         placeholder="16 Digit Card Number"
         #cardNumber="ngModel" name="cardNumber"
-        [(ngModel)]="service.formData.cardNumber">
+        [(ngModel)]="service.formData.cardNumber"
+        required>
     </div>
 
     <div class="row">
@@ -24,14 +26,16 @@
             <input type="password" class="form-control form-control-lg"
             placeholder="CVC"
             #securityCode="ngModel" name="securityCode"
-            [(ngModel)]="service.formData.securityCode">
+            [(ngModel)]="service.formData.securityCode"
+            required>
         </div>
         <div class="mb-3 col-6">
             <label>Valid Through</label>
             <input type="text" class="form-control form-control-lg"
             placeholder="MM/YY"
             #expirationDate="ngModel" name="expirationDate"
-            [(ngModel)]="service.formData.expirationDate">
+            [(ngModel)]="service.formData.expirationDate"
+            required>
         </div>
     </div>
 
