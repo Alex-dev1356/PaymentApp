@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { PaymentDetailService } from '../shared/payment-detail.service';
 import { NgForm } from '@angular/forms';
 import { PaymentDetail } from '../shared/payment-detail.model';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-payment-detail-form',
@@ -12,7 +13,8 @@ import { PaymentDetail } from '../shared/payment-detail.model';
 export class PaymentDetailFormComponent {
 
   //Injecting the PaymentDetailService into the PaymentDetailFormComponent
-  constructor(public service:PaymentDetailService) { }
+  //Injecting the ToastrService into the PaymentDetailFormComponent
+  constructor(public service:PaymentDetailService, private toastr: ToastrService) { }
 
   //Defining the onSubmit Method for the Event Binding
   onSubmit(form : NgForm){
@@ -21,6 +23,8 @@ export class PaymentDetailFormComponent {
       next: res => {
         this.service.list = res as PaymentDetail[]
         this.service.resetForm(form)
+        //Displaying the Success Message using the ToastrService
+        this.toastr.success('Inserted Successfully', 'Payment Detail Register')
       },
       error: err => {console.log(err)}
     })
