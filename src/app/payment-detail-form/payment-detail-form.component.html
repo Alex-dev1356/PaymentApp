@@ -17,7 +17,7 @@
         placeholder="16 Digit Card Number"
         #cardNumber="ngModel" name="cardNumber"
         [(ngModel)]="service.formData.cardNumber"
-        required>
+        required min-length="16" max-length="16">
     </div>
 
     <div class="row">
@@ -27,7 +27,7 @@
             placeholder="CVC"
             #securityCode="ngModel" name="securityCode"
             [(ngModel)]="service.formData.securityCode"
-            required>
+            required min-length="3" max-length="3">
         </div>
         <div class="mb-3 col-6">
             <label>Valid Through</label>
@@ -35,7 +35,7 @@
             placeholder="MM/YY"
             #expirationDate="ngModel" name="expirationDate"
             [(ngModel)]="service.formData.expirationDate"
-            required>
+            required min-length="5" max-length="5">
         </div>
     </div>
 
