@@ -20,6 +20,10 @@ export class PaymentDetailsComponent implements OnInit {
 
   editPaymentRecord(selectorRecord: PaymentDetail){
     //Assigning the selected record to the formData of type PaymentDetail Model
-    this.service.formData = selectorRecord;
+    // this.service.formData = selectorRecord;
+
+    //To fix the problem of editing the record that is already submitted
+    //we need to make a copy of the selected record and assign it to the formData
+    this.service.formData = Object.assign({}, selectorRecord);
   }
 }
