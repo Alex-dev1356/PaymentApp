@@ -23,16 +23,39 @@ export class PaymentDetailFormComponent {
 
     //Adding validation if the form is VALID or NOT
     if(form.valid){
-      this.service.postPaymentDetail()
-    .subscribe({
-      next: res => {
-        this.service.list = res as PaymentDetail[]
-        this.service.resetForm(form)
-        //Displaying the Success Message using the ToastrService
-        this.toastr.success('Inserted Successfully', 'Payment Detail Register')
-      },
-      error: err => {console.log(err)}
-    })
+      
+      //Checking the paymentDetailId value
+      if(this.service.formData.paymentDetailId == 0)
+        this.insertRecord(form)
+      else
+        this.updateRecord(form)
     }
   }
+
+  insertRecord(form : NgForm){
+    this.service.postPaymentDetail()
+      .subscribe({
+        next: res => {
+          this.service.list = res as PaymentDetail[]
+          this.service.resetForm(form)
+          //Displaying the Success Message using the ToastrService
+          this.toastr.success('Inserted Successfully', 'Payment Detail Register')
+        },
+        error: err => {console.log(err)}
+      })
+  }
+
+  updateRecord(form : NgForm){
+    this.service.putPaymentDetail()
+      .subscribe({
+        next: res => {
+          this.service.list = res as PaymentDetail[]
+          this.service.resetForm(form)
+          //Displaying the Success Message using the ToastrService
+          this.toastr.info('Updated Successfully', 'Payment Detail Register')
+        },
+        error: err => {console.log(err)}
+      })
+  }
+
 }
