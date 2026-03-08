@@ -18,7 +18,12 @@ export class PaymentDetailFormComponent {
 
   //Defining the onSubmit Method for the Event Binding
   onSubmit(form : NgForm){
-    this.service.postPaymentDetail()
+    //Checking if the form is Submitted or NOT
+    this.service.formSubmitted = true
+
+    //Adding validation if the form is VALID or NOT
+    if(form.valid){
+      this.service.postPaymentDetail()
     .subscribe({
       next: res => {
         this.service.list = res as PaymentDetail[]
@@ -28,5 +33,6 @@ export class PaymentDetailFormComponent {
       },
       error: err => {console.log(err)}
     })
+    }
   }
 }
